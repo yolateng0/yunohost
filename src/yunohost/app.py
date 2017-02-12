@@ -72,7 +72,7 @@ def app_listlists():
 
     for filename in os.listdir(REPO_PATH):
         if filename.endswith('.json'):
-            list_list.append(filename[:len(filename) - 5])
+            list_list.append(filename[:-len(".json")])
 
     return {'lists': list_list}
 
