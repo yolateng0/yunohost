@@ -71,7 +71,7 @@ def app_listlists():
         raise MoulinetteError(1, m18n.n('no_appslist_found'))
 
     for filename in os.listdir(REPO_PATH):
-        if '.json' in filename:
+        if filename.endswith('.json'):
             list_list.append(filename[:len(filename) - 5])
 
     return {'lists': list_list}
