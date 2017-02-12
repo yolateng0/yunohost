@@ -64,16 +64,15 @@ re_app_instance_name = re.compile(
 def app_listlists():
     """
     List fetched lists
-
-
     """
     list_list = []
-    try:
-        for filename in os.listdir(REPO_PATH):
-            if '.json' in filename:
-                list_list.append(filename[:len(filename) - 5])
-    except OSError:
+
+    if not os.path.exists(REPO_PATH):
         raise MoulinetteError(1, m18n.n('no_appslist_found'))
+
+    for filename in os.listdir(REPO_PATH):
+        if '.json' in filename:
+            list_list.append(filename[:len(filename) - 5])
 
     return {'lists': list_list}
 
