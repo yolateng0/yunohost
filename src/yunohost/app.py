@@ -134,11 +134,15 @@ def app_removelist(name):
         name -- Name of the list to remove
 
     """
-    try:
-        os.remove('%s/%s.json' % (REPO_PATH, name))
-        os.remove("/etc/cron.d/yunohost-applist-%s" % name)
-    except OSError:
+    list_path = os.path.join(REPO_PATH, name + ".json")
+    if not os.path.exists(list_path):
         raise MoulinetteError(errno.ENOENT, m18n.n('appslist_unknown'))
+
+    os.remove(list_path)
+
+    cron_path = "/etc/cron.d/yunohost-applist-%s" % name
+    if os.path.exists(cron_path):  # we don't care if the cron file doesn't exists
+        os.remove(cron_path)
 
     logger.success(m18n.n('appslist_removed'))
 
