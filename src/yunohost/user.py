@@ -488,6 +488,12 @@ def user_ssh_add_key(auth, username, key, comment):
 def user_ssh_remove_key(auth, username, key):
     return yunohost.ssh.user_ssh_remove_key(auth, username, key)
 
+def user_ssh_enable_permission(auth):
+    return yunohost.ssh.user_ssh_enable_permission(auth)
+
+def user_ssh_disable_permission(auth):
+    return yunohost.ssh.user_ssh_disable_permission(auth)
+
 #
 # End SSH subcategory
 #

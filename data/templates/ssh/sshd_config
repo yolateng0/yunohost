@@ -62,12 +62,17 @@ AcceptEnv LANG LC_*
 
 # SFTP stuff
 Subsystem sftp internal-sftp
-Match User sftpusers
+
+{% if sftp_secure == "true" %}
+AllowGroups main.sftp admins root
+
+Match Group main.sftp
         ForceCommand internal-sftp
         ChrootDirectory /home/%u
         AllowTcpForwarding no
         GatewayPorts no
         X11Forwarding no
+{% endif %}
 
 # root login is allowed on local networks
 # It's meant to be a backup solution in case LDAP is down and
