@@ -36,7 +36,7 @@ This repository is the core of YunoHost code.
 - [Python 2.7](https://www.python.org/download/releases/2.7)
 - [Moulinette](https://github.com/YunoHost/moulinette)
 - [Bash](https://www.gnu.org/software/bash/bash.html)
-- [Debian Jessie](https://www.debian.org/releases/jessie)
+- [Debian strech](https://www.debian.org/releases/stable/)
 
 ## License
 As [other components of YunoHost core code](https://yunohost.org/#/faq_en), this repository is under GNU AGPL v.3 license.
